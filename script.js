@@ -35,7 +35,8 @@ const deathSound = document.getElementById('deathSound');
 const eatenSound = document.getElementById('eatenSound');
 function playSound(sound) {
   sound.currentTime = 0;
-  sound.volume = 0.3;
+  sound.volume = 0.8;
+  backgroundMusic.volume = 0.9;
   sound.play().catch(err => console.log('Sound play prevented:', err));
 }
 class Snake {
