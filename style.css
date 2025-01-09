@@ -1,0 +1,311 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+#gameContainer {
+    position: relative;
+    width: 474px;
+    height: 474px;
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#gameCanvas {
+    background: linear-gradient(45deg, #000000 25%, #0a0a0a 25%, #0a0a0a 50%, #000000 50%, #000000 75%, #0a0a0a 75%, #0a0a0a 100%);
+    background-size: 32px 32px;
+}
+
+#score, #eatenCount {
+    position: fixed;
+    color: #00ff00;
+    font-size: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #00ff00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+    z-index: 10;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+#score {
+    top: 20px;
+    left: 20px;
+}
+
+#eatenCount {
+    top: 80px;
+    left: 20px;
+}
+
+#menuScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(5px);
+    z-index: 100;
+}
+
+.menuGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.menuTitle {
+    color: #00ff00;
+    font-size: 36px;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    letter-spacing: 2px;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+.menuSubtitle {
+    color: #ff0000;
+    font-size: 24px;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+.menuSelect {
+    background: rgba(0, 255, 0, 0.1);
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-family: 'Pixelify Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.menuSelect:hover {
+    background: rgba(0, 255, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.menuSelect option {
+    background: #000;
+    color: #00ff00;
+}
+
+#startGameBtn {
+    background: linear-gradient(45deg, #00aa00, #00ff00);
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-family: 'Pixelify Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+#startGameBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+}
+
+.menuLabel {
+    color: #00ff00;
+    font-size: 18px;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+#joystick {
+    background: rgba(0, 255, 0, 0.1);
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+}
+
+#stick {
+    background: rgba(0, 255, 0, 0.3);
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+#modeButtons {
+    position: absolute;
+    top: 50%;
+    right: -120px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modeButton {
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    border: 1px solid #666;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+.modeButton:hover {
+    background: #444;
+}
+
+#musicControls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#musicControls input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #00ff00;
+}
+
+#eatenNotification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 0, 0, 0.9);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 24px;
+    z-index: 1000;
+    display: none;
+    animation: fadeInOut 2s ease-in-out;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+    15% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    85% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+}
+
+.funText {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 24px;
+    font-family: 'Pixelify Sans', sans-serif;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    transform: rotate(-4deg);
+    margin: -10px 0 10px 0;
+    letter-spacing: 1px;
+}
+
+#gameOverScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(5px);
+    z-index: 100;
+}
+
+.gameOverTitle {
+    color: #ff0000;
+    font-size: 48px;
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+    letter-spacing: 4px;
+    font-family: 'Pixelify Sans', sans-serif;
+    animation: pulseText 2s infinite;
+}
+
+.gameOverStats {
+    color: #00ff00;
+    font-size: 24px;
+    text-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+    font-family: 'Pixelify Sans', sans-serif;
+    text-align: center;
+    margin: 10px 0;
+}
+
+@keyframes pulseText {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+#restartBtn {
+    background: linear-gradient(45deg, #ff0000, #ff3333);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-family: 'Pixelify Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#restartBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+@media (max-width: 800px) {
+    #gameContainer {
+        width: 100vmin;
+        height: 100vmin;
+        max-width: 474px;
+        max-height: 474px;
+    }
+    
+    #gameCanvas {
+        width: 100%;
+        height: 100%;
+    }
+    
+    #score {
+        top: 20px;
+        left: 20px;
+    }
+    
+    #eatenCount {
+        top: 80px;
+        left: 20px;
+    }
+    
+    #joystick {
+        display: block;
+    }
+}
