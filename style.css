@@ -126,6 +126,27 @@ body {
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
 }
 
+#instructionsBtn {
+    background: linear-gradient(45deg, #00aa00, #00ff00);
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-family: 'Pixelify Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#instructionsBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+}
+
 .menuLabel {
     color: #00ff00;
     font-size: 18px;
@@ -186,6 +207,24 @@ body {
     accent-color: #00ff00;
 }
 
+#backToMenuBtn {
+    background: #333;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-family: 'Pixelify Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    display: none;
+}
+
+#backToMenuBtn:hover {
+    background: #444;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
 #eatenNotification {
     position: fixed;
     top: 20px;
@@ -201,7 +240,7 @@ body {
     display: none;
     animation: fadeInOut 2s ease-in-out;
     text-align: center;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);  
 }
 
 @keyframes fadeInOut {
@@ -247,12 +286,7 @@ body {
 }
 
 .gameOverStats {
-    color: #00ff00;
-    font-size: 24px;
-    text-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
-    font-family: 'Pixelify Sans', sans-serif;
-    text-align: center;
-    margin: 10px 0;
+    display: none;
 }
 
 @keyframes pulseText {
@@ -274,12 +308,97 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: bold;
-    margin-top: 20px;
 }
 
 #restartBtn:hover {
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+#instructionsBtn {
+    background: linear-gradient(45deg, #00aa00, #00ff00);
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-family: 'Pixelify Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#instructionsBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+}
+
+#instructionsModal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.95);
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+    z-index: 1000;
+    max-width: 80%;
+    text-align: center;
+}
+
+.instructionsText {
+    color: #00ff00;
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-family: 'Pixelify Sans', sans-serif;
+    line-height: 1.5;
+}
+
+#closeInstructionsBtn {
+    background: #333;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-family: 'Pixelify Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#closeInstructionsBtn:hover {
+    background: #444;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+#homeBtn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #00aa00, #00ff00);
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Pixelify Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    z-index: 99;
+    display: none;
+}
+
+#homeBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
 }
 
 @media (max-width: 800px) {
